@@ -18,6 +18,12 @@ START_TEST(abc_3) {
 }
 END_TEST
 
+START_TEST(ceil_1) {
+    int x = 6;
+    ck_assert_int_eq(s21_ceil(x), ceil(x));
+}
+END_TEST
+
 Suite *math_tests(void) {
     Suite *m = suite_create("S21_MATH_TESTS");
 

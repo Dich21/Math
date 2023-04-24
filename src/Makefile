@@ -18,8 +18,8 @@ test: clean libs21_math.a
 
 gcov_report:
 
-r: test
-
+r: test clean 
+	rm -f 
 style: 
 	clang-format -i $(FUN) $(TESTS)
 
