@@ -1,10 +1,9 @@
 #ifndef SRC_S21_MATH_H_
 #define SRC_S21_MATH_H_
 
-#include <check.h>
-#include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
+
+#define S21_PI 3.1415926535897932384626433832795028841971
 
 int s21_abs(int x);
 long double s21_acos(double x);
