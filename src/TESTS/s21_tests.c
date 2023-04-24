@@ -1,33 +1,33 @@
 #include "s21_tests.h"
 
 START_TEST(abc_1) {
-  int x = -3;
-  ck_assert_int_eq(s21_abs(x), abs(x));
+    int x = -3;
+    ck_assert_int_eq(s21_abs(x), abs(x));
 }
 END_TEST
 
 START_TEST(abc_2) {
-  int x = 0;
-  ck_assert_int_eq(s21_abs(x), abs(x));
+    int x = 0;
+    ck_assert_int_eq(s21_abs(x), abs(x));
 }
 END_TEST
 
 START_TEST(abc_3) {
-int x = 6;
-ck_assert_int_eq(s21_abs(x), abs(x));
+    int x = 6;
+    ck_assert_int_eq(s21_abs(x), abs(x));
 }
 END_TEST
 
 Suite *math_tests(void) {
-  Suite *m = suite_create("S21_MATH_TESTS");
+    Suite *m = suite_create("S21_MATH_TESTS");
 
-  TCase *tm = tcase_create("s21_abs");
+    TCase *tm = tcase_create("s21_abs");
 
-  tcase_add_test(tm, abc_1);
-  tcase_add_test(tm, abc_2);
-  tcase_add_test(tm, abc_3);
+    tcase_add_test(tm, abc_1);
+    tcase_add_test(tm, abc_2);
+    tcase_add_test(tm, abc_3);
 
-  suite_add_tcase(math, tm);
+    suite_add_tcase(m, tm);
 
-  return m;
+    return m;
 }
