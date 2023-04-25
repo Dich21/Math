@@ -24,10 +24,13 @@ int main(void) {
 
         srunner_run_all(sr, CK_NORMAL);
 
-        number_failed += srunner_ntests_failed(sr);
+        int ntests = srunner_ntests_run(sr);
+        total_tests += ntests;
+        number_failed = srunner_ntests_failed(sr);
+        total_failed += number_failed;
         srunner_free(sr);
     }
-
+    printf("\n\n");
     int total_passed = total_tests - total_failed;
     printf("\033[34mTotal tests run: %d\033[0m\t", total_tests);
     printf("\033[32mTotal tests passed: %d\033[0m\t", total_passed);
