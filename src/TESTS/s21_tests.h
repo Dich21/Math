@@ -13,13 +13,17 @@ Suite *math_tests(void);
 int main(void) {
     int number_failed = 0;
 
-    Suite *math = math_tests();
-    SRunner *sr = srunner_create(math);
+    Suite *math[] = {math_tests(), NULL};
 
-    srunner_run_all(sr, CK_NORMAL);
+    for (int i = 0; math[i] != NULL; i++) {
+        printf("\n\n");
+        SRunner *sr = srunner_create(math[i]);
 
-    number_failed += srunner_ntests_failed(sr);
-    srunner_free(sr);
+        srunner_run_all(sr, CK_NORMAL);
+
+        number_failed += srunner_ntests_failed(sr);
+        srunner_free(sr);
+    }
 
     return (number_failed == 0) ? 0 : 1;
 }
