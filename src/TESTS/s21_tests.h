@@ -12,6 +12,9 @@ Suite *math_tests(void);
 
 int main(void) {
     int number_failed = 0;
+    int total_tests = 0;
+    int total_success = 0;
+    int total_failed = 0;
 
     Suite *math[] = {math_tests(), NULL};
 
@@ -24,6 +27,11 @@ int main(void) {
         number_failed += srunner_ntests_failed(sr);
         srunner_free(sr);
     }
+
+    int total_passed = total_tests - total_failed;
+    printf("\033[34mTotal tests run: %d\033[0m\t", total_tests);
+    printf("\033[32mTotal tests passed: %d\033[0m\t", total_passed);
+    printf("\033[31mTotal tests failed: %d\033[0m\n", total_failed);
 
     return (number_failed == 0) ? 0 : 1;
 }
