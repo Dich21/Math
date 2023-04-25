@@ -5,8 +5,10 @@
 #include <unistd.h>
 
 #define S21_PI 3.1415926535897932384626433832795028841971
+#define S21_E 2.71828182845904523536028747
 #define S21_Inf 1.0 / 0.0
 #define S21_Nun 0.0 / 0.0
+#define s21_EPS 1e-17
 
 int s21_abs(int x);
 long double s21_acos(double x);
