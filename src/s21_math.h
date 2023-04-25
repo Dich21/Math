@@ -2,6 +2,7 @@
 #define SRC_S21_MATH_H_
 
 #include <stdio.h>
+#include <unistd.h>
 
 #define S21_PI 3.1415926535897932384626433832795028841971
 #define S21_Inf 1.0 / 0.0
