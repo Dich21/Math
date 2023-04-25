@@ -5,25 +5,38 @@ CHECK_LIBS=$(shell pkg-config --libs check)
 CHECK_CFLAGS=$(shell pkg-config --cflags check)
 TESTS=TESTS/s21_tests.c
 
-all: style test clean
+all: style test anime clean_finish 
+
+anime:
+	@$(CC) $(CFLAGS) -o $@ MISC/animation.c
+	@./$@
 
 test: clean libs21_math.a
-	$(CC) -c $(TESTS) $(CHECK_CFLAGS)
-	$(CC) $(CFLAGS) *.o libs21_math.a $(CHECK_LIBS) -o test
-	./test
+	@$(CC) -c $(TESTS) $(CHECK_CFLAGS)
+	@$(CC) $(CFLAGS) *.o libs21_math.a $(CHECK_LIBS) -o test
+	@./test
 
 libs21_math.a: 
 	
-	$(CC) $(CFLAGS) -c $(FUN)
-	ar rcs libs21_math.a *.o
-	ranlib libs21_math.a
+	@$(CC) $(CFLAGS) -c $(FUN)
+	@ar rcs libs21_math.a *.o
+	@ranlib libs21_math.a
 
 gcov_report:
 
 style: 
-	clang-format -i $(FUN) $(TESTS)
+	@clang-format -i $(FUN) $(TESTS)
 
 clean: 
-	rm -f *.o *.a
-	rm -rf s21_math_test
-	rm -rf test
+	@rm -f *.o *.a
+	@rm -rf s21_math_test
+	@rm -rf test
+	@rm -rf anime
+
+clean_finish: 
+
+	@rm -f *.o *.a
+	@rm -rf s21_math_test
+	@rm -rf test
+	@rm -rf anime
+
