@@ -57,10 +57,28 @@ START_TEST(floor_3) {
 }
 END_TEST
 
-// f
+// fabs
+START_TEST(fabs_1) {
+    double x = 6.5673839393;
+    ck_assert_int_eq(s21_fabs(x), fabs(x));
+}
+END_TEST
 
-Suite *math_tests(void) {
-    Suite *m = suite_create("S21_MATH_TESTS");
+START_TEST(fabs_2) {
+    double x = -6.999999999;
+    ck_assert_int_eq(s21_fabs(x), fabs(x));
+}
+END_TEST
+
+START_TEST(fabs_3) {
+    double x = 0;
+    ck_assert_int_eq(s21_fabs(x), fabs(x));
+}
+END_TEST
+
+// abs
+Suite *abs_tests(void) {
+    Suite *m = suite_create("S21_ABS_TESTS");
 
     TCase *tm = tcase_create("s21_abs");
 
@@ -72,15 +90,43 @@ Suite *math_tests(void) {
 
     return m;
 }
-
+// ceil
 Suite *ceil_tests(void) {
-    Suite *m = suite_create("S21_MATH_TESTS");
+    Suite *m = suite_create("S21_CEIL_TESTS");
 
     TCase *tm = tcase_create("s21_ceil");
 
     tcase_add_test(tm, ceil_1);
     tcase_add_test(tm, ceil_2);
     tcase_add_test(tm, ceil_3);
+
+    suite_add_tcase(m, tm);
+
+    return m;
+}
+// floor
+Suite *floor_tests(void) {
+    Suite *m = suite_create("S21_FLOOR_TESTS");
+
+    TCase *tm = tcase_create("s21_floor");
+
+    tcase_add_test(tm, floor_1);
+    tcase_add_test(tm, floor_2);
+    tcase_add_test(tm, floor_3);
+
+    suite_add_tcase(m, tm);
+
+    return m;
+}
+// fabs
+Suite *fabs_tests(void) {
+    Suite *m = suite_create("S21_FABS_TESTS");
+
+    TCase *tm = tcase_create("s21_fabs");
+
+    tcase_add_test(tm, fabs_1);
+    tcase_add_test(tm, fabs_2);
+    tcase_add_test(tm, fabs_3);
 
     suite_add_tcase(m, tm);
 
