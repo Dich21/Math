@@ -76,6 +76,41 @@ START_TEST(fabs_3) {
 }
 END_TEST
 
+// fmod
+
+START_TEST(fmod_1) {
+  double x = 6.5673839393;
+  double y = 3.68686;
+  ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+START_TEST(fmod_2) {
+  double x = -6.999999999;
+  double y = 3.68686;
+  ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+START_TEST(fmod_3) {
+  double x = 0;
+  double y = 3.68686;
+  ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+// START_TEST(fmod_4) {
+//   double x = 3.68686;
+//   double y = 0.00;
+//   ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+// }
+// END_TEST
+
+/////////////////SSUUIITTEE
+///////
+///////////
+////////////
+
 // abs
 Suite *abs_tests(void) {
   Suite *m = suite_create("S21_ABS_TESTS");
@@ -127,6 +162,22 @@ Suite *fabs_tests(void) {
   tcase_add_test(tm, fabs_1);
   tcase_add_test(tm, fabs_2);
   tcase_add_test(tm, fabs_3);
+
+  suite_add_tcase(m, tm);
+
+  return m;
+}
+
+// fmod
+Suite *fmod_tests(void) {
+  Suite *m = suite_create("S21_FMOD_TESTS");
+
+  TCase *tm = tcase_create("s21_fmod");
+
+  tcase_add_test(tm, fmod_1);
+  tcase_add_test(tm, fmod_2);
+  tcase_add_test(tm, fmod_3);
+  // tcase_add_test(tm, fmod_4);
 
   suite_add_tcase(m, tm);
 
