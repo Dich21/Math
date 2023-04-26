@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "s21_math.h": "c",
-    "unistd.h": "c"
+    "unistd.h": "c",
+    "float.h": "c"
   }
 }

@@ -83,13 +83,13 @@ START_TEST(exp_1) {
 END_TEST
 
 START_TEST(exp_2) {
-    double x = 0;
+    double x = 5;
     ck_assert_int_eq(s21_exp(x), exp(x));
 }
 END_TEST
 
 START_TEST(exp_3) {
-    double x = 0;
+    double x = 10;
     ck_assert_int_eq(s21_exp(x), exp(x));
 }
 END_TEST
