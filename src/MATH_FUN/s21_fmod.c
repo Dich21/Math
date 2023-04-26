@@ -5,7 +5,7 @@ long double s21_fmod(double x, double y) {
   double sec = 0;
   sec = s21_fabs(y);
   if (y == 0) {
-    per = S21_Inf;
+    per = S21_NaN;
   } else {
     per = s21_fabs(x);
     while (per >= sec)
