@@ -135,8 +135,6 @@ START_TEST(fmod_6) {
   double x = -0.000;
   double y = 56.787878;
   ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
-<<<<<<< HEAD
-=======
 }
 END_TEST
 
@@ -258,7 +256,6 @@ START_TEST(pow_17) {
   double x = 12;
   double y = S21_NaN;
   ck_assert_int_eq(s21_pow(x, y), pow(x, y));
->>>>>>> de2f5fbbb5aebe94a8d909dbf4d5845e259ae2de
 }
 END_TEST
 
@@ -340,20 +337,6 @@ Suite *exp_tests(void) {
 // fmod
 Suite *fmod_tests(void) {
   Suite *m = suite_create("S21_FMOD_TESTS");
-<<<<<<< HEAD
-
-  TCase *tm = tcase_create("s21_fmod");
-
-  tcase_add_test(tm, fmod_1);
-  tcase_add_test(tm, fmod_2);
-  tcase_add_test(tm, fmod_3);
-  tcase_add_test(tm, fmod_4);
-  tcase_add_test(tm, fmod_5);
-  tcase_add_test(tm, fmod_6);
-
-  suite_add_tcase(m, tm);
-
-=======
 
   TCase *tm = tcase_create("s21_fmod");
 
@@ -395,6 +378,5 @@ Suite *pow_tests(void) {
 
   suite_add_tcase(m, tm);
 
->>>>>>> de2f5fbbb5aebe94a8d909dbf4d5845e259ae2de
   return m;
 }
