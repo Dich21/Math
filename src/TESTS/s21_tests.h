@@ -22,6 +22,7 @@ Suite *atan_tests(void);
 Suite *cos_tests(void);
 Suite *asin_tests(void);
 Suite *acos_tests(void);
+Suite *tan_tests(void);
 
 int main(void) {
     int number_failed = 0;
@@ -29,7 +30,7 @@ int main(void) {
     int total_success = 0;
     int total_failed = 0;
 
-    Suite *math[] = {abs_tests(), ceil_tests(), floor_tests(), fabs_tests(), fmod_tests(), exp_tests(), pow_tests(), sqrt_tests(), log_tests(), sin_tests(), atan_tests(), cos_tests(), asin_tests(), acos_tests(), NULL};
+    Suite *math[] = {abs_tests(), ceil_tests(), floor_tests(), fabs_tests(), fmod_tests(), exp_tests(), pow_tests(), sqrt_tests(), log_tests(), sin_tests(), atan_tests(), cos_tests(), asin_tests(), acos_tests(), tan_tests(), NULL};
 
     for (int i = 0; math[i] != NULL; i++) {
         printf("\n\n");
