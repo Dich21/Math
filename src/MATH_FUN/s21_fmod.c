@@ -1,8 +1,8 @@
 #include "../s21_math.h"
 
 long double s21_fmod(double x, double y) {
-  double per = 0;
-  double sec = 0;
+  long double per = 0;
+  long double sec = 0;
   sec = s21_fabs(y);
   if (y == 0) {
     per = S21_NaN;

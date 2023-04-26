@@ -259,6 +259,111 @@ START_TEST(pow_17) {
 }
 END_TEST
 
+// sqrt
+
+START_TEST(sqrt_1) {
+  double x = 1;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_2) {
+  double x = 0;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_3) {
+  double x = 1;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_4) {
+  double x = 0;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_5) {
+  double x = 1;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_6) {
+  double x = 3;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_7) {
+  double x = 3;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_8) {
+  double x = 10000;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_9) {
+  double x = 2;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_10) {
+  double x = 2.51;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_11) {
+  double x = -0;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_12) {
+  double x = 2;
+
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_13) {
+  double x = 2.51;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_14) {
+  double x = S21_Inf;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_15) {
+  double x = 2;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_16) {
+  double x = S21_NaN;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
+START_TEST(sqrt_17) {
+  double x = 12;
+  ck_assert_int_eq(s21_sqrt(x), sqrt(x));
+}
+END_TEST
+
 /////////////////SSUUIITTEE
 ///////
 ///////////
@@ -375,6 +480,35 @@ Suite *pow_tests(void) {
   tcase_add_test(tm, pow_15);
   tcase_add_test(tm, pow_16);
   tcase_add_test(tm, pow_17);
+
+  suite_add_tcase(m, tm);
+
+  return m;
+}
+
+// sqrt
+Suite *sqrt_tests(void) {
+  Suite *m = suite_create("S21_sqrt_TESTS");
+
+  TCase *tm = tcase_create("s21_sqrt");
+
+  tcase_add_test(tm, sqrt_1);
+  tcase_add_test(tm, sqrt_2);
+  tcase_add_test(tm, sqrt_3);
+  tcase_add_test(tm, sqrt_4);
+  tcase_add_test(tm, sqrt_5);
+  tcase_add_test(tm, sqrt_6);
+  tcase_add_test(tm, sqrt_7);
+  tcase_add_test(tm, sqrt_8);
+  tcase_add_test(tm, sqrt_9);
+  tcase_add_test(tm, sqrt_10);
+  tcase_add_test(tm, sqrt_11);
+  tcase_add_test(tm, sqrt_12);
+  tcase_add_test(tm, sqrt_13);
+  tcase_add_test(tm, sqrt_14);
+  tcase_add_test(tm, sqrt_15);
+  tcase_add_test(tm, sqrt_16);
+  tcase_add_test(tm, sqrt_17);
 
   suite_add_tcase(m, tm);
 
