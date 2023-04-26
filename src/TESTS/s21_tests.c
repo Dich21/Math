@@ -757,6 +757,68 @@ START_TEST(acos_10) {
 }
 END_TEST
 
+// tan
+
+START_TEST(tan_1) {
+  double x = 1;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_2) {
+  double x = 0;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_3) {
+  double x = -3;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_4) {
+  double x = 10000;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_5) {
+  double x = -2;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_6) {
+  double x = 2.51;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_7) {
+  double x = -0;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_8) {
+  double x = S21_Inf;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_9) {
+  double x = S21_PI;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
+START_TEST(tan_10) {
+  double x = S21_NaN;
+  ck_assert_int_eq(s21_tan(x), tan(x));
+}
+END_TEST
+
 /////////////////SSUUIITTEE
 ///////
 ///////////
@@ -776,6 +838,7 @@ Suite *abs_tests(void) {
 
   return m;
 }
+
 // ceil
 Suite *ceil_tests(void) {
   Suite *m = suite_create("S21_CEIL_TESTS");
@@ -790,6 +853,7 @@ Suite *ceil_tests(void) {
 
   return m;
 }
+
 // floor
 Suite *floor_tests(void) {
   Suite *m = suite_create("S21_FLOOR_TESTS");
@@ -804,6 +868,7 @@ Suite *floor_tests(void) {
 
   return m;
 }
+
 // fabs
 Suite *fabs_tests(void) {
   Suite *m = suite_create("S21_FABS_TESTS");
@@ -818,6 +883,7 @@ Suite *fabs_tests(void) {
 
   return m;
 }
+
 // exp
 Suite *exp_tests(void) {
   Suite *m = suite_create("S21_EXP_TESTS");
@@ -832,6 +898,7 @@ Suite *exp_tests(void) {
 
   return m;
 }
+
 // fmod
 Suite *fmod_tests(void) {
   Suite *m = suite_create("S21_FMOD_TESTS");
@@ -1037,6 +1104,28 @@ Suite *acos_tests(void) {
   tcase_add_test(tm, acos_8);
   tcase_add_test(tm, acos_9);
   tcase_add_test(tm, acos_10);
+
+  suite_add_tcase(m, tm);
+
+  return m;
+}
+
+// tan
+Suite *tan_tests(void) {
+  Suite *m = suite_create("S21_TAN_TESTS");
+
+  TCase *tm = tcase_create("s21_tan");
+
+  tcase_add_test(tm, tan_1);
+  tcase_add_test(tm, tan_2);
+  tcase_add_test(tm, tan_3);
+  tcase_add_test(tm, tan_4);
+  tcase_add_test(tm, tan_5);
+  tcase_add_test(tm, tan_6);
+  tcase_add_test(tm, tan_7);
+  tcase_add_test(tm, tan_8);
+  tcase_add_test(tm, tan_9);
+  tcase_add_test(tm, tan_10);
 
   suite_add_tcase(m, tm);
 
