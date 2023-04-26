@@ -633,6 +633,130 @@ START_TEST(cos_10) {
 }
 END_TEST
 
+// asin
+
+START_TEST(asin_1) {
+  double x = 1;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_2) {
+  double x = 0;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_3) {
+  double x = 3;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_4) {
+  double x = 10000;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_5) {
+  double x = -2;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_6) {
+  double x = 2.51;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_7) {
+  double x = -0;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_8) {
+  double x = S21_Inf;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_9) {
+  double x = S21_PI;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+START_TEST(asin_10) {
+  double x = S21_NaN;
+  ck_assert_int_eq(s21_asin(x), asin(x));
+}
+END_TEST
+
+// acos
+
+START_TEST(acos_1) {
+  double x = 1;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_2) {
+  double x = 0;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_3) {
+  double x = 3;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_4) {
+  double x = 10000;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_5) {
+  double x = -2;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_6) {
+  double x = 2.51;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_7) {
+  double x = -0;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_8) {
+  double x = S21_Inf;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_9) {
+  double x = S21_PI;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
+START_TEST(acos_10) {
+  double x = S21_NaN;
+  ck_assert_int_eq(s21_acos(x), acos(x));
+}
+END_TEST
+
 /////////////////SSUUIITTEE
 ///////
 ///////////
@@ -869,6 +993,50 @@ Suite *cos_tests(void) {
   tcase_add_test(tm, cos_8);
   tcase_add_test(tm, cos_9);
   tcase_add_test(tm, cos_10);
+
+  suite_add_tcase(m, tm);
+
+  return m;
+}
+
+// asin
+Suite *asin_tests(void) {
+  Suite *m = suite_create("S21_ASIN_TESTS");
+
+  TCase *tm = tcase_create("s21_asin");
+
+  tcase_add_test(tm, asin_1);
+  tcase_add_test(tm, asin_2);
+  tcase_add_test(tm, asin_3);
+  tcase_add_test(tm, asin_4);
+  tcase_add_test(tm, asin_5);
+  tcase_add_test(tm, asin_6);
+  tcase_add_test(tm, asin_7);
+  tcase_add_test(tm, asin_8);
+  tcase_add_test(tm, asin_9);
+  tcase_add_test(tm, asin_10);
+
+  suite_add_tcase(m, tm);
+
+  return m;
+}
+
+// acos
+Suite *acos_tests(void) {
+  Suite *m = suite_create("S21_ACOS_TESTS");
+
+  TCase *tm = tcase_create("s21_acos");
+
+  tcase_add_test(tm, acos_1);
+  tcase_add_test(tm, acos_2);
+  tcase_add_test(tm, acos_3);
+  tcase_add_test(tm, acos_4);
+  tcase_add_test(tm, acos_5);
+  tcase_add_test(tm, acos_6);
+  tcase_add_test(tm, acos_7);
+  tcase_add_test(tm, acos_8);
+  tcase_add_test(tm, acos_9);
+  tcase_add_test(tm, acos_10);
 
   suite_add_tcase(m, tm);
 
