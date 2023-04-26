@@ -4,7 +4,7 @@ long double s21_fmod(double x, double y) {
   long double per = 0;
   long double sec = 0;
   sec = s21_fabs(y);
-  if (y == 0) {
+  if (y == 0 || S21_IF_NaN(x) || S21_IF_NaN(y)) {
     per = S21_NaN;
   } else {
     per = s21_fabs(x);

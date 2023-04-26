@@ -138,6 +138,27 @@ START_TEST(fmod_6) {
 }
 END_TEST
 
+START_TEST(fmod_7) {
+  double x = S21_NaN;
+  double y = 56.787878;
+  ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+START_TEST(fmod_8) {
+  double x = 56.787878;
+  double y = S21_NaN;
+  ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+START_TEST(fmod_9) {
+  double x = S21_Inf;
+  double y = S21_NaN;
+  ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
 // pow
 
 START_TEST(pow_1) {
@@ -511,8 +532,11 @@ Suite *fmod_tests(void) {
   tcase_add_test(tm, fmod_2);
   tcase_add_test(tm, fmod_3);
   tcase_add_test(tm, fmod_4);
-  // tcase_add_test(tm, fmod_5);
+  tcase_add_test(tm, fmod_5);
   tcase_add_test(tm, fmod_6);
+  tcase_add_test(tm, fmod_7);
+  tcase_add_test(tm, fmod_8);
+  tcase_add_test(tm, fmod_9);
 
   suite_add_tcase(m, tm);
 
