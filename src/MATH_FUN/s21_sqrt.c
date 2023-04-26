@@ -4,7 +4,7 @@
 
 long double s21_sqrt(double x) {
   if (x < 0)
-    return NAN;
+    return S21_NaN;
 
   if (x == 0)
     return 0;
@@ -19,12 +19,3 @@ long double s21_sqrt(double x) {
   } while (s21_fabs(curr - prev) > DBL_EPSILON);
   return curr;
 }
-
-// int main(void) {
-//     double x;
-//     scanf("%lf", &x);
-//     long double y = sqrt((double)x);
-//     long double z = s21_sqrt((double)x);
-//     printf("s21_sqrt(%lf) = %Lf\n", x, z);
-//     printf("sqrt(%lf) = %Lf", x, y);
-// }
