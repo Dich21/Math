@@ -117,12 +117,26 @@ START_TEST(fmod_3) {
 }
 END_TEST
 
-// START_TEST(fmod_4) {
-//   double x = 3.68686;
-//   double y = 0.00;
-//   ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
-// }
-// END_TEST
+START_TEST(fmod_4) {
+    double x = 3.68686;
+    double y = 0.00;
+    ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+START_TEST(fmod_5) {
+    double x = 3.68686;
+    double y = -6.00;
+    ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
+
+START_TEST(fmod_6) {
+    double x = -0.000;
+    double y = 56.787878;
+    ck_assert_int_eq(s21_fmod(x, y), fmod(x, y));
+}
+END_TEST
 
 /////////////////SSUUIITTEE
 ///////
@@ -208,7 +222,9 @@ Suite *fmod_tests(void) {
     tcase_add_test(tm, fmod_1);
     tcase_add_test(tm, fmod_2);
     tcase_add_test(tm, fmod_3);
-    // tcase_add_test(tm, fmod_4);
+    tcase_add_test(tm, fmod_4);
+    // tcase_add_test(tm, fmod_5);
+    tcase_add_test(tm, fmod_6);
 
     suite_add_tcase(m, tm);
 
