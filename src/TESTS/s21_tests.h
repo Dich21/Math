@@ -14,6 +14,7 @@ Suite *floor_tests(void);
 Suite *fabs_tests(void);
 Suite *fmod_tests(void);
 Suite *exp_tests(void);
+Suite *pow_tests(void);
 
 int main(void) {
     int number_failed = 0;
@@ -21,7 +22,11 @@ int main(void) {
     int total_success = 0;
     int total_failed = 0;
 
+<<<<<<< HEAD
     Suite *math[] = {abs_tests(), ceil_tests(), floor_tests(), fabs_tests(), fmod_tests(), exp_tests(), NULL};
+=======
+    Suite *math[] = {abs_tests(), ceil_tests(), floor_tests(), fabs_tests(), fmod_tests(), exp_tests(), pow_tests(), NULL};
+>>>>>>> de2f5fbbb5aebe94a8d909dbf4d5845e259ae2de
 
     for (int i = 0; math[i] != NULL; i++) {
         printf("\n\n");
