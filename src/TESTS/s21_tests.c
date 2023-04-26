@@ -274,25 +274,25 @@ START_TEST(sqrt_2) {
 END_TEST
 
 START_TEST(sqrt_3) {
-  double x = 1;
+  double x = -0;
   ck_assert_int_eq(s21_sqrt(x), sqrt(x));
 }
 END_TEST
 
 START_TEST(sqrt_4) {
-  double x = 0;
+  double x = 000;
   ck_assert_int_eq(s21_sqrt(x), sqrt(x));
 }
 END_TEST
 
 START_TEST(sqrt_5) {
-  double x = 1;
+  double x = 17;
   ck_assert_int_eq(s21_sqrt(x), sqrt(x));
 }
 END_TEST
 
 START_TEST(sqrt_6) {
-  double x = 3;
+  double x = s21_pow(17, 10);
   ck_assert_int_eq(s21_sqrt(x), sqrt(x));
 }
 END_TEST
@@ -322,7 +322,7 @@ START_TEST(sqrt_10) {
 END_TEST
 
 START_TEST(sqrt_11) {
-  double x = -0;
+  double x = -4000;
   ck_assert_int_eq(s21_sqrt(x), sqrt(x));
 }
 END_TEST
@@ -335,7 +335,7 @@ START_TEST(sqrt_12) {
 END_TEST
 
 START_TEST(sqrt_13) {
-  double x = 2.51;
+  double x = 01;
   ck_assert_int_eq(s21_sqrt(x), sqrt(x));
 }
 END_TEST
