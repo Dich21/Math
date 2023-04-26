@@ -10,6 +10,7 @@
 #define S21_Inf 1.0 / 0.0
 #define S21_NaN 0.0 / 0.0
 #define s21_EPS 1e-9
+#define S21_IF_NaN(x) (x != x)
 
 int s21_abs(int x);
 long double s21_fact(int x);

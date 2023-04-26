@@ -14,7 +14,7 @@ anime:
 test: clean libs21_math.a
 	@$(CC) -c $(TESTS) $(CHECK_CFLAGS)
 	@$(CC) $(CFLAGS) *.o libs21_math.a $(CHECK_LIBS) -o test
-	@./test
+	./test
 
 libs21_math.a: 
 	
