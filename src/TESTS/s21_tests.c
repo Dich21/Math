@@ -364,6 +364,68 @@ START_TEST(sqrt_17) {
 }
 END_TEST
 
+// log
+
+START_TEST(log_1) {
+  double x = 1;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_2) {
+  double x = 0;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_3) {
+  double x = 3;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_4) {
+  double x = 10000;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_5) {
+  double x = -2;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_6) {
+  double x = 2.51;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_7) {
+  double x = -0;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_8) {
+  double x = S21_Inf;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_9) {
+  double x = 2;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
+START_TEST(log_10) {
+  double x = S21_NaN;
+  ck_assert_int_eq(s21_log(x), log(x));
+}
+END_TEST
+
 /////////////////SSUUIITTEE
 ///////
 ///////////
@@ -509,6 +571,28 @@ Suite *sqrt_tests(void) {
   tcase_add_test(tm, sqrt_15);
   tcase_add_test(tm, sqrt_16);
   tcase_add_test(tm, sqrt_17);
+
+  suite_add_tcase(m, tm);
+
+  return m;
+}
+
+// log
+Suite *log_tests(void) {
+  Suite *m = suite_create("S21_LOG_TESTS");
+
+  TCase *tm = tcase_create("s21_log");
+
+  tcase_add_test(tm, log_1);
+  tcase_add_test(tm, log_2);
+  tcase_add_test(tm, log_3);
+  tcase_add_test(tm, log_4);
+  tcase_add_test(tm, log_5);
+  tcase_add_test(tm, log_6);
+  tcase_add_test(tm, log_7);
+  tcase_add_test(tm, log_8);
+  tcase_add_test(tm, log_9);
+  tcase_add_test(tm, log_10);
 
   suite_add_tcase(m, tm);
 
