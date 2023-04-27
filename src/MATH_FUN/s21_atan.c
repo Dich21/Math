@@ -27,8 +27,8 @@ long double s21_atan(double x) {
                (1 + (2 * i)); // гоним с помощью ряда лейбницы если произойдет
                               // выходт из интервала
       }
+      res = S21_PI * s21_sqrt(x * x) / (2 * x) - res;
     }
-    res = S21_PI * s21_sqrt(x * x) / (2 * x) - res;
   }
   return res;
 }

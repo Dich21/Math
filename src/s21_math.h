@@ -5,12 +5,16 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define S21_PI 3.1415926535897932384626433832795028841971
+#define S21_PI 3.14159265358979323846
+#define S21_PI 3.14159265358979323846
 #define S21_E 2.71828182845904523536028747
-#define S21_Inf 1.0 / 0.0
+#define S21_Inf +1.0 / 0.0
+#define S21_Inf_Neg -1.0 / 0.0
 #define S21_NaN 0.0 / 0.0
 #define s21_EPS 1e-9
 #define S21_IF_NaN(x) (x != x)
+#define S21_IF_INF(x) (x == S21_Inf || x == S21_Inf_Neg)
+#define S21_ACC 1e-09
 
 int s21_abs(int x);
 long double s21_fact(int x);

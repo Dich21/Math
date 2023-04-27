@@ -2,6 +2,10 @@
   "files.associations": {
     "s21_math.h": "c",
     "unistd.h": "c",
-    "float.h": "c"
+    "float.h": "c",
+    "ios": "c",
+    "math.h": "c",
+    "complex": "c",
+    "stdlib.h": "c"
   }
 }

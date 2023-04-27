@@ -6,7 +6,7 @@ long double s21_sin(double x) {
   x = s21_fmod(x, 2 * S21_PI);
 
   long double res = 0;
-  for (int i = 0; i < 300; i++) {
+  for (long long int i = 0; i < 100; i++) {
     res += s21_pow(-1, i) * s21_pow(x, 1 + 2 * i) / s21_fact(1 + 2 * i);
   }
 

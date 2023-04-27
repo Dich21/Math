@@ -2,11 +2,13 @@
 #define TEST_S21_TESTS_H_
 
 #include <check.h>
+#include <float.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-#include "../s21_math.h"
+#include "s21_math.h"
 
 Suite *abs_tests(void);
 Suite *ceil_tests(void);
@@ -27,7 +29,6 @@ Suite *tan_tests(void);
 int main(void) {
     int number_failed = 0;
     int total_tests = 0;
-    int total_success = 0;
     int total_failed = 0;
 
     Suite *math[] = {abs_tests(), ceil_tests(), floor_tests(), fabs_tests(), fmod_tests(), exp_tests(), pow_tests(), sqrt_tests(), log_tests(), sin_tests(), atan_tests(), cos_tests(), asin_tests(), acos_tests(), tan_tests(), NULL};

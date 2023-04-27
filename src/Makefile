@@ -3,40 +3,68 @@ CFLAGS=-Wall -Wextra -Werror -std=c11
 FUN= MATH_FUN/*.c
 CHECK_LIBS=$(shell pkg-config --libs check)
 CHECK_CFLAGS=$(shell pkg-config --cflags check)
-TESTS=TESTS/s21_tests.c
+GCOV_FLAGS=-fprofile-arcs -ftest-coverage
+TESTS=TESTS/*.c
 
-all: style test anime clean_finish 
+all: style test anime  
 
 anime:
 	@$(CC) $(CFLAGS) -o $@ MISC/animation.c
 	@./$@
 
-test: clean libs21_math.a
+test: clean s21_math.a
 	@$(CC) -c $(TESTS) $(CHECK_CFLAGS)
-	@$(CC) $(CFLAGS) *.o libs21_math.a $(CHECK_LIBS) -o test
+	@$(CC) $(CFLAGS) *.o s21_math.a $(CHECK_LIBS) -o test
 	./test
 
-libs21_math.a: 
+s21_math.a: 
 	
 	@$(CC) $(CFLAGS) -c $(FUN)
-	@ar rcs libs21_math.a *.o
-	@ranlib libs21_math.a
-
-gcov_report:
+	@ar rcs s21_math.a *.o
+	@ranlib s21_math.a
 
 style: 
 	@clang-format -i $(FUN) $(TESTS)
 
 clean: 
-	@rm -f *.o *.a
+	@rm -f *.o *.a *.gcno *.gcda *.html *.png *.info *.css
+	@rm -rf MATH_FUN/*.html *.png *.info *.css
+	@rm -rf TESTS/*.html *.png *.info *.css
 	@rm -rf s21_math_test
+	@rm -rf icovOutput
+	@rm -rf Library
 	@rm -rf test
 	@rm -rf anime
 
 clean_finish: 
-
-	@rm -f *.o *.a
-	@rm -rf s21_math_test
+	@rm -f *.o *.a *.gcno *.gcda *.html *.png *.info *.css
+	@rm -rf MATH_FUN/*.html *.png *.info *.css
+	@rm -rf TESTS/*.html *.png *.info *.css
+	@rm -rf s21_math_test 
+	@rm -rf icovOutput
+	@rm Library
 	@rm -rf test
 	@rm -rf anime
 
+#gcov_report
+gcov_report: s21_mathGR grBuild grRun icov htmlGen open 
+
+s21_mathGR:
+	$(CC) $(CFLAGS) $(GCOV_FLAGS) -c $(FUN)
+	ar rc s21_math.a *.o
+	ranlib s21_math.a
+
+grBuild:
+	$(CC) $(CFLAGS) $(GCOV_FLAGS) $(TESTS) $(CHECK_LIBS) $(CHECK_CFLAGS) s21_math.a -o icovOutput
+
+grRun:
+	./icovOutput
+
+icov:
+	lcov -t "test" -o icovOutput.info -c -d ./
+
+htmlGen:
+	genhtml  icovOutput.info
+
+open:
+	open ./index.html
