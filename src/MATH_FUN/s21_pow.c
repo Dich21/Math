@@ -13,14 +13,14 @@ long double s21_pow(double base, double exp) {
 
   long double res = 1;
 
-  if (exp == 0) {
-    res = 1;
-  } else if (exp < 0) {
+  if (exp < 0) {
     base = 1. / base;
     exp = -exp;
     for (int i = 0; i < exp; i++) {
       res *= base;
     }
+  } else if ((int)exp != exp) {
+    res = s21_exp(exp * s21_log(base));
   } else {
     for (int i = 0; i < exp; i++) {
       res *= base;

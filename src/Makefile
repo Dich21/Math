@@ -17,7 +17,7 @@ anime:
 test: clean s21_math.a
 	@$(CC) -c $(TESTS) $(CHECK_CFLAGS)
 	@$(CC) $(CFLAGS) *.o s21_math.a $(CHECK_LIBS) -o test
-	./test
+	@./test
 
 s21_math.a: 
 	
@@ -56,24 +56,24 @@ clean_finish:
 gcov_report: s21_mathGR grBuild grRun icov htmlGen open 
 
 s21_mathGR:
-	$(CC) $(CFLAGS) $(GCOV_FLAGS) -c $(FUN)
-	ar rc s21_math.a *.o
-	ranlib s21_math.a
+	@$(CC) $(CFLAGS) $(GCOV_FLAGS) -c $(FUN)
+	@ar rc s21_math.a *.o
+	@ranlib s21_math.a
 
 grBuild:
-	$(CC) $(CFLAGS) $(GCOV_FLAGS) $(TESTS) $(CHECK_LIBS) $(CHECK_CFLAGS) s21_math.a -o icovOutput
+	@$(CC) $(CFLAGS) $(GCOV_FLAGS) $(TESTS) $(CHECK_LIBS) $(CHECK_CFLAGS) s21_math.a -o icovOutput
 
 grRun:
-	./icovOutput
+	@./icovOutput
 
 icov:
-	lcov -t "test" -o icovOutput.info -c -d ./
+	@lcov -t "test" -o icovOutput.info -c -d ./
 
 htmlGen:
-	genhtml  icovOutput.info
+	@genhtml  icovOutput.info
 
 open:
-	open ./index.html
+	@open ./index.html
 
 #docker
 

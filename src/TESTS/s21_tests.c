@@ -472,6 +472,12 @@ START_TEST(pow_30) {
 }
 END_TEST
 
+START_TEST(pow_31) {
+  for (double i = 0.032; i == 1; i += 0.05)
+    ck_assert_double_eq_tol(s21_pow(20, 0.4), pow(20, 0.4), 0.000001);
+}
+END_TEST
+
 // sqrt
 
 START_TEST(sqrt_1) {
@@ -1399,6 +1405,7 @@ Suite *pow_tests(void) {
   tcase_add_test(tm, pow_28);
   tcase_add_test(tm, pow_29);
   tcase_add_test(tm, pow_30);
+  tcase_add_test(tm, pow_31);
 
   suite_add_tcase(m, tm);
 

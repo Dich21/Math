@@ -2,7 +2,6 @@
 
 long double s21_log(double x) {
   long double res = 0;
-  long double sec = 0;
   int count = 0;
 
   if (x == 1) {
@@ -20,6 +19,7 @@ long double s21_log(double x) {
     for (; x >= S21_E; x /= S21_E) count++;
 
     for (int i = 0; i < 100; i++) {
+      long double sec;
       sec = res;
       res = sec + 2 * ((x - s21_exp(sec)) / (x + s21_exp(sec)));
     }
