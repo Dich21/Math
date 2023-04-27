@@ -1,12 +1,9 @@
 #include "../s21_math.h"
 
 long double s21_fmod(double x, double y) {
-  if (S21_IF_INF(x))
-    return S21_NaN;
-  if (y == 0 || S21_IF_NaN(y))
-    return S21_NaN;
-  if (x == 0)
-    return 0;
+  if (S21_IF_INF(x)) return S21_NaN;
+  if (y == 0 || S21_IF_NaN(y)) return S21_NaN;
+  if (x == 0) return 0;
 
   long double per = 0;
   long double sec = 0;

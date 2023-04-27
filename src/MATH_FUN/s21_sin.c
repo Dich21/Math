@@ -1,8 +1,7 @@
 #include "../s21_math.h"
 
 long double s21_sin(double x) {
-  if (x == S21_Inf)
-    return S21_NaN;
+  if (x == S21_Inf) return S21_NaN;
   x = s21_fmod(x, 2 * S21_PI);
 
   long double res = 0;

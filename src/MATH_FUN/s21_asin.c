@@ -1,8 +1,7 @@
 #include "../s21_math.h"
 
 long double s21_asin(double x) {
-  if (S21_IF_NaN(x) || S21_IF_INF(x))
-    return S21_NaN;
+  if (S21_IF_NaN(x) || S21_IF_INF(x)) return S21_NaN;
 
   long double res = 0;
   if (x > 1 || x < -1) {

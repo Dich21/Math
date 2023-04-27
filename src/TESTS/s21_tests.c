@@ -850,7 +850,7 @@ END_TEST
 
 START_TEST(atan_11) {
   long double arr[] = {-25.1235, 23464, 0,
-                       1,        0.156, -1}; // -25.1235, 0.23464, 0, 1, -1};
+                       1,        0.156, -1};  // -25.1235, 0.23464, 0, 1, -1};
   for (int i = 0; i < 6; i++)
     ck_assert_double_eq_tol(s21_atan(arr[i]), atan(arr[i]), 0.000001);
 }

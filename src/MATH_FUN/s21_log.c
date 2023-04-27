@@ -17,8 +17,7 @@ long double s21_log(double x) {
   else if (x < 0 || x == -S21_Inf) {
     res = S21_NaN;
   } else {
-    for (; x >= S21_E; x /= S21_E)
-      count++;
+    for (; x >= S21_E; x /= S21_E) count++;
 
     for (int i = 0; i < 100; i++) {
       sec = res;
