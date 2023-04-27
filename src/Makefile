@@ -6,6 +6,8 @@ CHECK_CFLAGS=$(shell pkg-config --cflags check)
 GCOV_FLAGS=-fprofile-arcs -ftest-coverage
 TESTS=TESTS/*.c
 
+#build
+
 all: style test anime  
 
 anime:
@@ -23,8 +25,12 @@ s21_math.a:
 	@ar rcs s21_math.a *.o
 	@ranlib s21_math.a
 
+#styling
+
 style: 
-	@clang-format -i $(FUN) $(TESTS)
+	@clang-format -i $(FUN) $(TESTS) MISC/*.c
+
+#cleaning
 
 clean: 
 	@rm -f *.o *.a *.gcno *.gcda *.html *.png *.info *.css
@@ -68,3 +74,9 @@ htmlGen:
 
 open:
 	open ./index.html
+
+#docker
+
+docker:
+	docker build . -t s21_decimal --platform linux/amd64
+	docker run s21_decimal
