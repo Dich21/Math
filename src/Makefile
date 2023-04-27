@@ -41,6 +41,7 @@ clean:
 	@rm -rf Library
 	@rm -rf test
 	@rm -rf anime
+	@rm -rf src
 
 clean_finish: 
 	@rm -f *.o *.a *.gcno *.gcda *.html *.png *.info *.css

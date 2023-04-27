@@ -6,7 +6,6 @@
 #include <unistd.h>
 
 #define S21_PI 3.14159265358979323846
-#define S21_PI 3.14159265358979323846
 #define S21_E 2.71828182845904523536028747
 #define S21_Inf +1.0 / 0.0
 #define S21_Inf_Neg -1.0 / 0.0
